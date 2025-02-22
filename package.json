@@ -1,12 +1,12 @@
 {
-  "name": "vite-react-typescript-starter",
+  "name": "penn-curiosity",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": ".",
+  "homepage": "https://rroshchin18.github.io/leadership-curiosity-assessment/",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
