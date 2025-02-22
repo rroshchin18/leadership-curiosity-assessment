@@ -57,20 +57,20 @@ function App() {
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="min-h-screen bg-white flex items-center justify-center p-4"
+        className="min-h-screen bg-white flex items-center justify-center p-4 overflow-hidden"
       >
         <div className="max-w-3xl w-full">
           <motion.div 
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            className="text-center mb-8"
+            className="text-center mb-6"
           >
             <div className="relative inline-block">
-              <HelpCircle className="w-16 h-16 text-[#0093B8] mx-auto mb-2" />
-              <Sparkles className="w-6 h-6 text-[#1C1A31] absolute -top-1 -right-1 transform rotate-12" />
+              <HelpCircle className="w-12 h-12 sm:w-16 sm:h-16 text-[#0093B8] mx-auto mb-2" />
+              <Sparkles className="w-4 h-4 sm:w-6 sm:h-6 text-[#1C1A31] absolute -top-1 -right-1 transform rotate-12" />
             </div>
-            <h1 className="text-4xl font-bold text-[#1C1A31] mb-3">Leadership Curiosity Assessment</h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+            <h1 className="text-2xl sm:text-4xl font-bold text-[#1C1A31] mb-2 sm:mb-3">Leadership Curiosity Assessment</h1>
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto mb-6">
               Discover your curiosity trait through this interactive assessment.
             </p>
           </motion.div>
@@ -79,7 +79,7 @@ function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="grid grid-cols-2 gap-4 mb-8"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6"
           >
             {Object.entries(traitDefinitions).map(([key, trait], index) => (
               <TraitCard
@@ -99,13 +99,13 @@ function App() {
           >
             <button
               onClick={handleStart}
-              className="bg-[#1C1A31] text-white px-8 py-3 rounded-lg text-lg font-semibold 
+              className="bg-[#1C1A31] text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-base sm:text-lg font-semibold 
                        transition-all duration-300 hover:bg-[#0093B8] hover:scale-105 
                        focus:outline-none focus:ring-2 focus:ring-[#0093B8] focus:ring-offset-2
                        inline-flex items-center"
             >
               Begin Assessment
-              <ChevronRight className="ml-2 w-5 h-5" />
+              <ChevronRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </motion.div>
         </div>
@@ -121,7 +121,7 @@ function App() {
     });
     
     return (
-      <div className="min-h-screen bg-white p-8">
+      <div className="min-h-screen bg-white p-4 overflow-hidden">
         <div className="max-w-4xl mx-auto">
           <div ref={resultsRef}>
             <ResultsCard trait={traitContent} date={date} />
@@ -131,22 +131,22 @@ function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
-            className="flex flex-col sm:flex-row justify-center gap-4 mt-8"
+            className="flex flex-col sm:flex-row justify-center gap-3 mt-6"
           >
             <button
               onClick={handleSaveResults}
-              className="inline-flex items-center justify-center bg-[#1C1A31] text-white px-6 py-3 rounded-lg 
-                       transition-all duration-300 hover:bg-[#0093B8] hover:scale-105"
+              className="inline-flex items-center justify-center bg-[#1C1A31] text-white px-4 sm:px-6 py-2.5 rounded-lg 
+                       transition-all duration-300 hover:bg-[#0093B8] hover:scale-105 text-sm sm:text-base"
             >
-              <Download className="w-5 h-5 mr-2" />
+              <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
               Save Results
             </button>
             <button
               onClick={resetAssessment}
-              className="inline-flex items-center justify-center bg-gray-200 text-gray-700 px-6 py-3 rounded-lg 
-                       transition-all duration-300 hover:bg-gray-300"
+              className="inline-flex items-center justify-center bg-gray-200 text-gray-700 px-4 sm:px-6 py-2.5 rounded-lg 
+                       transition-all duration-300 hover:bg-gray-300 text-sm sm:text-base"
             >
-              <RefreshCw className="w-5 h-5 mr-2" />
+              <RefreshCw className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
               Take Again
             </button>
           </motion.div>
@@ -162,22 +162,22 @@ function App() {
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="min-h-screen bg-white flex items-center justify-center p-4"
+      className="min-h-screen bg-white flex items-center justify-center p-4 overflow-hidden"
     >
       <div className="max-w-2xl w-full">
-        <div className="mb-8">
+        <div className="mb-6">
           <ProgressBar current={currentQuestion} total={questions.length} />
           <motion.h2 
             key={question.id}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-2xl font-bold text-[#1C1A31] mb-8"
+            className="text-xl sm:text-2xl font-bold text-[#1C1A31] mb-6"
           >
             {question.text}
           </motion.h2>
         </div>
         <motion.div 
-          className="space-y-4 mb-8"
+          className="space-y-3 mb-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ staggerChildren: 0.1 }}
@@ -209,37 +209,37 @@ function App() {
           <button
             onClick={handleBack}
             disabled={currentQuestion === 0}
-            className={`inline-flex items-center px-6 py-3 rounded-lg transition-all duration-300
+            className={`inline-flex items-center px-4 sm:px-6 py-2.5 rounded-lg transition-all duration-300 text-sm sm:text-base
                      ${currentQuestion === 0 
                        ? 'bg-gray-100 text-gray-400 cursor-not-allowed' 
                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}
           >
-            <ChevronLeft className="w-5 h-5 mr-2" />
+            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
             Back
           </button>
           {isLastQuestion ? (
             <button
               onClick={handleSubmit}
               disabled={!selectedAnswer}
-              className={`inline-flex items-center px-6 py-3 rounded-lg transition-all duration-300
+              className={`inline-flex items-center px-4 sm:px-6 py-2.5 rounded-lg transition-all duration-300 text-sm sm:text-base
                        ${!selectedAnswer 
                          ? 'bg-gray-100 text-gray-400 cursor-not-allowed' 
                          : 'bg-[#1C1A31] text-white hover:bg-[#0093B8] hover:scale-105'}`}
             >
               Submit
-              <ChevronRight className="w-5 h-5 ml-2" />
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
             </button>
           ) : (
             <button
               onClick={handleNext}
               disabled={!selectedAnswer}
-              className={`inline-flex items-center px-6 py-3 rounded-lg transition-all duration-300
+              className={`inline-flex items-center px-4 sm:px-6 py-2.5 rounded-lg transition-all duration-300 text-sm sm:text-base
                        ${!selectedAnswer 
                          ? 'bg-gray-100 text-gray-400 cursor-not-allowed' 
                          : 'bg-[#1C1A31] text-white hover:bg-[#0093B8] hover:scale-105'}`}
             >
               Next
-              <ChevronRight className="w-5 h-5 ml-2" />
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
             </button>
           )}
         </motion.div>
